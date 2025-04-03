@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import './styles.scss';
+import {fetchWeatherData} from "./services/api";
 const WeatherForecast = () => {
     const [city, setCity] = useState("New York");
+    const [weatherData, setWeatherData] = useState();
+
+    useEffect(() => {
+        setWeatherData(fetchWeatherData(city));
+    }, []);
 
     return (
         <div className="dashboard-container">
             <Container>
-                <Row className="mb-3">
-                    <Col md={6}>
+                <Row>
+                    <Col>
                         <h2>Weather Dashboard</h2>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={6}>
-                        <Card className="p-3 weather-card">
+                    <Col>
+                        <Card className="weather-card">
                             <h3>{city}</h3>
                             <h1>--°C</h1>
                             <p>Wind: -- m/s</p>
