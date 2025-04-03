@@ -1,0 +1,16 @@
+$primary-color: #1e1e2f;
+$text-color: #ffffff;
+
+.dashboard-container {
+  background-color: $primary-color;
+  color: $text-color;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+}
